@@ -1,0 +1,53 @@
+@{ViewData["Title"] = "Activity";}
+@model RecActivity;
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <span style="color:blue" ><h1>@Model.ActivityTitle</h1></span>
+    </div>
+    <div class="col">
+      @if (@Model.UserId==ViewBag.UserId)
+          {
+          <a href="/CancelActivity/@Model.RecActivityID" type="button" value="Delete"> Delete </a>
+          }
+          else if (@Model.Particpants.Any(u=>u.UserId==ViewBag.UserId))
+          {
+              <a href="/UNRSVP/@Model.RecActivityID" type="button" value="Leave"> Leave </a>
+          }
+          else 
+          {
+            <a href="/RSVP/@Model.RecActivityID" type="button" value="Join">Join</a>
+          }
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+<h3 class="text-nowrap" >Event Coordinator: <span style="color:blue" ><u>@Model.Coordinator.FirstName</u></span></h3>
+  </div>
+</div>
+<h3>Description</h3>
+  <div class="row">
+    <div class="col-sm-12">
+    <textarea rows="4" cols="50"> @Model.Description</textarea>
+      </div>
+</div>
+<div class="container"> 
+  <div class="row">
+    <div class="col-sm-1"></div>
+        <ul><u><h3>Participants:</h3></u>
+        <div class="col">
+      @foreach(RSVP rsvp in @Model.Particpants) 
+      {
+        <li>@rsvp.Participant.FullName</li>
+      }  
+        </ul>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+</div>  

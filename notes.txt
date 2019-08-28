@@ -1,0 +1,4 @@
+  <br><input type="date" id="eventdate" min=@DateTime.Now.ToString("mm/dd/yyyy") asp-for="@Model.Date" ><br>
+
+
+                    ModelState.AddModelError("LoginDetail.Password", "Invalid Email/Password");

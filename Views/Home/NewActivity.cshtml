@@ -1,0 +1,41 @@
+@model RecActivity
+
+<div class="container">
+  <div class="row">
+      <h1>Create an Activity</h1>
+  </div>
+</div>
+<hr>
+<div id="outer">
+    <div class="b" id="inner">
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <div class="form-group">
+            <form asp-action="NewActivity" asp-controller="Home" method="post">
+                <br><label asp-for="@Model.ActivityTitle"></label><br>
+                <span class="text-danger" asp-validation-for="@Model.ActivityTitle"></span>
+                <input asp-for="@Model.ActivityTitle">
+                <br><label asp-for="@Model.Time"></label><br>
+                <span class="text-danger" asp-validation-for="@Model.Time"></span>
+                <input asp-for="@Model.Time" type="time" id="aptpt" name="time" required>
+                <span class="text-danger" asp-validation-for="@Model.ActivityDate"></span>
+                <br><label asp-for="@Model.ActivityDate"></label>
+                <br><input type="date" id="eventdate" min=@DateTime.Now.ToString() asp-for="@Model.ActivityDate" ><br>
+                <span class="text-danger" asp-validation-for="@Model.Duration"></span>
+                 Duration: <input asp-for="@Model.Duration type="number" name="quantity" min="1">
+                <span class="text-danger" asp-validation-for="@Model.DurationTypeID"></span>
+                <select asp-for="@Model.DurationTypeID">
+                    <option value="1">Hours</option>
+                    <option value="2">Minutes</option>
+                    <option value="3">Days</option>
+                </select>                 
+                <br><label asp-for="@Model.Description"></label><br>
+                <span class="text-danger" asp-validation-for="@Model.Description"></span>
+                <input asp-for="@Model.Description">
+                <input value="Create Activity" type="submit">    
+            </form>      
+            </div></td>
+        </tbody>
+    </table>        
+    </div>
+    <div id="clearit"></div>
