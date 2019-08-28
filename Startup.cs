@@ -43,7 +43,7 @@ namespace BeltExam
             }
 
             app.UseSession();    
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
