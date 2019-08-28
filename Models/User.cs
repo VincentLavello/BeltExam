@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace BeltExam.Models
 {
-public class User : IValidatableObject
+public class User
 {
     [Key]
     public int UserId {get;set;}
@@ -50,11 +50,6 @@ public class User : IValidatableObject
     {
         return $"{this.FirstName} {this.LastName}";
     }
-
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        {
-            throw new NotImplementedException();
-        }
 
   }//class
 }//namespace
